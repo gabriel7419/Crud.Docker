@@ -99,5 +99,35 @@ Copiar código
 docker-compose up --build
 ```
 
+## Possíveis Erros e Soluções
+
+### 1. Erro: "Could not find driver"
+Causa: Faltam drivers de banco de dados (como SQLite, MySQL ou PostgreSQL) no seu PHP.
+
+Solução: Instale a extensão necessária para o banco de dados que você está utilizando:
+
+Para SQLite: sudo apt-get install php-sqlite3
+Para MySQL: sudo apt-get install php-mysql
+Após isso, reinicie o servidor Apache ou Nginx, ou apenas reinicie o servidor local do Laravel.
+
+### 2. Erro: "Database file does not exist"
+Causa: O arquivo do banco de dados SQLite não foi criado corretamente.
+
+Solução: Verifique se você executou o comando para criar o arquivo database.sqlite no diretório database/. Se o arquivo não existir, crie-o manualmente:
+
+```bash
+touch database/database.sqlite
+```
+
+### 3. Erro: "404 Not Found"
+Causa: As rotas podem não estar configuradas corretamente.
+
+Solução: Verifique o arquivo routes/web.php para garantir que as rotas do CRUD estão mapeadas corretamente para o controller. Utilize php artisan route:list para verificar todas as rotas disponíveis.
+
+### 4. Erro: "View [layouts.app] not found"
+Causa: O arquivo de layout padrão do Blade não está no diretório correto ou não foi criado.
+
+Solução: Verifique se o arquivo resources/views/layouts/app.blade.php existe e contém o layout básico da aplicação.
+
 Licença
 Este projeto é licenciado sob a licença MIT.
