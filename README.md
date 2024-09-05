@@ -99,7 +99,7 @@ Copiar código
 docker-compose up --build
 ```
 
-## Possíveis Erros e Soluções
+# Possíveis Erros e Soluções
 
 ### 1. Erro: "Could not find driver"
 Causa: Faltam drivers de banco de dados (como SQLite, MySQL ou PostgreSQL) no seu PHP.
