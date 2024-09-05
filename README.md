@@ -99,3 +99,5 @@ Copiar código
 docker-compose up --build
 ```
 
+Licença
+Este projeto é licenciado sob a licença MIT.
