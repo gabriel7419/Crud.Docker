@@ -11,7 +11,7 @@ Este projeto é um sistema básico de CRUD (Create, Read, Update, Delete) feito 
 ## Requisitos
 Para rodar este projeto, você precisará ter os seguintes softwares instalados:
 
-- [PHP 8.1 ou superior](https://www.php.net/downloads.php)
+- [PHP 8.2 ou superior](https://www.php.net/downloads.php)
 - [Composer](https://getcomposer.org/)
 - [SQLite, MySQL ou outro banco de dados suportado pelo Laravel](https://laravel.com/docs/11.x/database)
 - [Node.js e NPM](https://nodejs.org/) (Opcional, caso utilize o Laravel Mix para compilar assets)
