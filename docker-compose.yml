@@ -1,20 +1,20 @@
+## Projeto com Docker, Apache2 e SQLite3 como servidor.
 services:
-    web:
-        build:
-            context: .
-            dockerfile: Dockerfile
-        ports:
-            - "8080:80"
-        volumes:
-            - .:/var/www/html
-            - ./laravel.conf:/etc/apache2/sites-available/000-default.conf
+    web:  # Define o serviço "web", que é a aplicação principal.
+        build:  # Configuração para construir a imagem Docker personalizada para o serviço "web".
+            context: .  # Define o contexto de construção como o diretório atual (onde o docker-compose.yml está localizado).
+            dockerfile: Dockerfile  # Especifica o Dockerfile a ser usado para construir a imagem, que está na pasta raiz do projeto.
+        ports:  # Mapeamento de portas entre o contêiner e a máquina host.
+            - "8080:80"  # Mapeia a porta 80 do contêiner para a porta 8080 do host. Assim, você pode acessar o serviço na URL http://localhost:8080.
+        volumes:  # Define volumes para o serviço "web", que são mapeamentos de diretórios entre o contêiner e o host.
+            - .:/var/www/html  # Mapeia o diretório atual do host para o diretório /var/www/html dentro do contêiner, permitindo que alterações no host sejam refletidas no contêiner.
+            - ./laravel.conf:/etc/apache2/sites-available/000-default.conf  # Substitui o arquivo de configuração padrão do Apache dentro do contêiner pelo arquivo local laravel.conf, permitindo customizar a configuração do Apache para a aplicação.
+        depends_on:  # Define as dependências do serviço "web". Garante que o serviço "db" esteja iniciado antes do serviço "web" iniciar.
+            - db  # O serviço "web" depende do serviço "db", que é o banco de dados.
 
-        depends_on:
-            - db
-
-    db:
-        image: nouchka/sqlite3
-        volumes:
-            - ./database/database.sqlite:/db/sqlite.db
-        environment:
-            SQLITE_DATABASE: /db/sqlite.db
+    db:  # Define o serviço "db", que fornece o banco de dados.
+        image: nouchka/sqlite3  # Usa a imagem Docker "nouchka/sqlite3" para o serviço "db", que já inclui o SQLite.
+        volumes:  # Define volumes para o serviço "db" para persistência de dados.
+            - ./database/database.sqlite:/db/sqlite.db  # Mapeia o arquivo local database.sqlite para o caminho /db/sqlite.db dentro do contêiner, garantindo que o banco de dados seja persistente entre reinicializações.
+        environment:  # Define variáveis de ambiente para o serviço "db".
+            SQLITE_DATABASE: /db/sqlite.db  # Define a variável de ambiente SQLITE_DATABASE com o valor /db/sqlite.db, facilitando a localização do banco de dados dentro do contêiner para os aplicativos que o utilizam.
