@@ -36,46 +36,6 @@ composer install
 npm install
 ```
 
-### 3. Configurar o Arquivo .env
-Crie o arquivo .env baseado no arquivo .env.example:
-
-```env
-cp .env.example .env
-Edite o arquivo .env e configure as variáveis de ambiente, como conexão com o banco de dados.
-```
-
-Exemplo para SQLite:
-
-```env
-DB_CONNECTION=sqlite
-DB_DATABASE=/caminho/para/seu_projeto/database/database.sqlite
-```
-
-Ou, para MySQL:
-
-```env
-Copiar código
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=nome_do_banco
-DB_USERNAME=seu_usuario
-DB_PASSWORD=sua_senha
-```
-
-### 4. Gerar chave da aplicação
-
-```bash
-php artisan key:generate
-```
-
-### 5. Criar banco de dados
-Para usar SQLite, crie o arquivo:
-
-```bash
-touch database/database.sqlite
-```
-
 Execute as migrations para criar as tabelas no banco de dados:
 
 
@@ -83,7 +43,7 @@ Execute as migrations para criar as tabelas no banco de dados:
 php artisan migrate
 ```
 
-### 6. Rodar o Servidor
+### 3. Rodar o Servidor
 Inicie o servidor local:
 
 ```bash
@@ -91,7 +51,7 @@ php artisan serve
 ```
 O projeto estará disponível em http://localhost:8000/seu_nome.
 
-### 7. Docker (Opcional)
+### 4. Docker
 Se você prefere rodar a aplicação em um ambiente Docker, utilize o arquivo docker-compose.yml para configurar a aplicação e o banco de dados.
 
 ```bash
