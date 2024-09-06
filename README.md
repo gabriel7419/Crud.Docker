@@ -55,7 +55,6 @@ O projeto estará disponível em http://localhost:8000/seu_nome.
 Se você prefere rodar a aplicação em um ambiente Docker, utilize o arquivo docker-compose.yml para configurar a aplicação e o banco de dados.
 
 ```bash
-Copiar código
 docker-compose up --build
 ```
 
